@@ -7,7 +7,7 @@ public class Base : MonoBehaviour
 
     private Queue<GameObject> _resources;
 
-    private void Start()
+    private void Awake()
     {
         _resources = new Queue<GameObject>();
     }

@@ -61,22 +61,22 @@ public class Robot : MonoBehaviour
     private IEnumerator RollActivate()
     {
         _robotAnimation.SetRoll();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2);
         _target = _resourse;
+    }
+
+    private IEnumerator WalkActivate()
+    {
+        _robotAnimation.SetWalk();
+        yield return new WaitForSeconds(2);
+        _resourse.transform.parent = transform;
+        _target = _base.gameObject;
     }
 
     private void TakeResource()
     {
         _target = null;
         StartCoroutine(WalkActivate());
-    }
-
-    private IEnumerator WalkActivate()
-    {
-        _robotAnimation.SetWalk();
-        yield return new WaitForSeconds(2f);
-        _resourse.transform.parent = transform;
-        _target = _base.gameObject;
     }
 
     private void PutResource()
